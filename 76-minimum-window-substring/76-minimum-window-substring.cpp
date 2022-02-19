@@ -6,7 +6,6 @@ public:
         return result;
     }
     unordered_map<char, int> map;
-    unordered_map<char, int> window;
     for(int i = 0; i < T.length(); i++){
         map[T[i]]++;
     }
