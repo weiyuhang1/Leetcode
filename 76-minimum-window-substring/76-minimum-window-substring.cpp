@@ -15,15 +15,20 @@ public:
     for(int slow = 0, fast = 0; fast < S.length(); fast++){
         char c = S[fast];
         if(map.find(c) != map.end()){
-            window[c]++;
-            if(window[c] <= map[c]){
+          
+            if(map[c] > 0){
                 letterCounter++;
             }
+            map[c]--;
         }
         if(letterCounter >= T.length()){
-            while(map.find(S[slow]) == map.end() || window[S[slow]] > map[S[slow]]){
-                window[S[slow]]--;
-                slow++;
+            while(map.find(S[slow]) == map.end() || map[S[slow]] < 0){
+                if (map.find(S[slow]) == map.end()){
+                     slow++;
+                }else{
+                    map[S[slow]]++;
+                    slow++;
+                }
             }
             if(fast - slow + 1 < minLength){
                 minLength = fast - slow + 1;
