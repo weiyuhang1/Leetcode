@@ -12,8 +12,7 @@ public:
                     count.erase(fruits[i]);
                 i++;
             }
-            sublength = j - i + 1;
-            result = sublength > result ? sublength : result;
+            result = max(result, j - i +1);
         }
         return result;
     }
