@@ -20,8 +20,10 @@ public:
                     delete cur;
                     cur = prev->next;
                 }else{
+            
                     head = cur->next;
-                    cur = cur->next;
+                    delete cur;
+                    cur = head;
                 }
             }else{
                 prev = cur;
