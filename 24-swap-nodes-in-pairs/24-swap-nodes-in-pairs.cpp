@@ -14,7 +14,7 @@ public:
         ListNode* pre = NULL;
         ListNode* cur = head;
         ListNode* tmp;
-        while (cur != NULL && cur->next != NULL) {
+        while (cur != NULL  && cur->next != NULL) {
             if (pre == NULL) {
                 tmp = cur->next->next;
                 head = cur->next;
