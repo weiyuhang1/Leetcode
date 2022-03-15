@@ -13,9 +13,9 @@ public:
         for (int num : nums){
             for (int j = target; j >= num; j--){
                 dp[j] = max(dp[j], dp[j - num] + num);
+                if (dp[j] == target) return true;
             }
         }
-        if (dp[target] == target) return true;
-        else return false;
+        return false;
     }
 };
