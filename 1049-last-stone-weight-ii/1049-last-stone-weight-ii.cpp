@@ -12,6 +12,6 @@ public:
                 dp[j] = max(dp[j], dp[j - stone] + stone);
             }
         }
-        return (sum - 2 * dp[target]);
+        return sum - 2 * dp[target];
     }
 };
