@@ -15,24 +15,22 @@ public:
         ListNode* cur = dummy;
         while (list1 != nullptr && list2 != nullptr){
         if (list1->val <= list2 -> val){
-            cur -> next = new ListNode(list1 -> val);
+            cur -> next = list1;
             list1 = list1 -> next;
         }else{
-            cur -> next = new ListNode(list2 -> val);
+            cur -> next = list2;
             list2 = list2 -> next;
         }
         cur = cur->next;
         }
         
-        while (list1 != nullptr){
-             cur -> next = new ListNode(list1 -> val);
-            list1 = list1 -> next;
-            cur = cur->next;
+        if (list1 != nullptr){
+             cur -> next = list1;
+
         }
-        while (list2 != nullptr){
-             cur -> next = new ListNode(list2 -> val);
-            list2 = list2 -> next;
-            cur = cur->next;
+        if (list2 != nullptr){
+             cur -> next = list2;
+
         }
         
         
