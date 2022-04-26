@@ -8,11 +8,9 @@ public:
             if (s[i] == ' ' && i-1 >= 0 && s[i-1] != ' '){
                 last = len;
                 len = 0;
-            }else if (s[i] == ' '){
-                len = 0;
-            
 
-            }else{
+
+            }else if (s[i] != ' '){
                 len++;
             }
         }
