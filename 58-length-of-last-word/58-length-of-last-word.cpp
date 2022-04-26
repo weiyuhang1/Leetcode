@@ -1,6 +1,7 @@
 class Solution {
 public:
     int lengthOfLastWord(string s) {
+        //could do right to left search 
 
         int len = 0;
         int last = 0;
