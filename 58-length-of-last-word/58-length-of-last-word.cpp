@@ -11,7 +11,7 @@ public:
 
 
             }
-            if (s[i] != ' '){
+            else if (s[i] != ' '){
                 len++;
             }
         }
