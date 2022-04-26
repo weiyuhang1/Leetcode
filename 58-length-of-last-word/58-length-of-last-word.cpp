@@ -10,7 +10,8 @@ public:
                 len = 0;
 
 
-            }else if (s[i] != ' '){
+            }
+            if (s[i] != ' '){
                 len++;
             }
         }
