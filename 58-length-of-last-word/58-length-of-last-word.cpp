@@ -16,7 +16,7 @@ public:
                 len++;
             }
         }
-        if (s[s.length()-1] != ' ') last = len;
+        if (s.back() != ' ') last = len;
         return last;
         
     }
