@@ -18,6 +18,8 @@ public:
         
         
     }
+    
+    //minDepth couldn't guarantee left subtree and right subtree is balanced
     int minDepth(TreeNode* root) {
         if (root == nullptr) return 0;
         return min(minDepth(root->left), minDepth(root->right)) + 1;
