@@ -11,7 +11,7 @@ public:
             for (int j = 1; j < i; j++) {
                 row2[j] = row1[j - 1] + row1[j];
             }
-            row1 = row2;
+            row1 = move(row2);
             
         }
         return row1;
