@@ -13,7 +13,6 @@ public:
     int read(char *buf, int n) {
         int len = 0;
         int len4 = 4;
-        int j = 0;
         while (len4 == 4) {
             char buf4[4];
             len4 = read4(buf4);           
