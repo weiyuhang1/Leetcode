@@ -12,23 +12,18 @@ public:
      */
     int read(char *buf, int n) {
         int len = 0;
-        int i = 0;
+        int len4 = 4;
         int j = 0;
-        for (int i = 0; i < n / 4 + 1; i++) {
+        while (len4 == 4) {
             char buf4[4];
-            int len4 = read4(buf4);
-            
-            while (j < len4 && j + len <= n) {
-                if (j + len == n) return n;
+            len4 = read4(buf4);           
+            while (j < len4 && j + len < n) {              
                 buf[len + j] = buf4[j];
-    
-                j++;
+                    j++;
             }
-
+            if (j + len == n) return n;
             j = 0;
-            len += len4;
-            if (len4 < 4) break;
-            
+            len += len4;            
         }
         return len;
     }
