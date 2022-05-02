@@ -13,8 +13,9 @@ public:
     int read(char *buf, int n) {
         int len = 0;
         int len4 = 4;
+        char buf4[4];
         while (len4 == 4) {
-            char buf4[4];
+
             len4 = read4(buf4);           
             for (int i = 0; i < len4; i++) {    
                 if (len == n) return n;   
