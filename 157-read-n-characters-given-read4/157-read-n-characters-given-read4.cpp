@@ -17,13 +17,11 @@ public:
         while (len4 == 4) {
             char buf4[4];
             len4 = read4(buf4);           
-            while (j < len4 && len < n) {              
-                buf[len] = buf4[j];
+            for (int i = 0; i < len4; i++) {    
+                if (len == n) return n;   
+                buf[len] = buf4[i];
                 len++;
-                j++;
             }
-            if (len == n) return n;
-            j = 0;          
         }
         return len;
     }
