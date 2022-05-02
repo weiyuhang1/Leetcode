@@ -19,8 +19,9 @@ public:
             int len4 = read4(buf4);
             
             while (j < len4 && j + len <= n) {
-                buf[len + j] = buf4[j];
                 if (j + len == n) return n;
+                buf[len + j] = buf4[j];
+    
                 j++;
             }
 
