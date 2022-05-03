@@ -1,6 +1,6 @@
 class TwoSum {
 public:
-    unordered_multiset<long> nums;
+    unordered_multiset<int64_t> nums;
     TwoSum() {
         
     }
