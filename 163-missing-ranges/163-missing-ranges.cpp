@@ -9,7 +9,7 @@ public:
         }
         
         
-        if (lower == upper) return result;
+ //       if (lower == upper) return result;
 
         
         if (nums[0] > lower)
