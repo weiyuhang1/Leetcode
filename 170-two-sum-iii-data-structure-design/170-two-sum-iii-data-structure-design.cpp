@@ -12,7 +12,7 @@ public:
     
     bool find(int value) {
         for (long i : nums) {
-            if (i * 2 == value) {
+            if (i == value - i) {
                 if (nums.count(value - i) > 1)
                     return true;
             } else if (nums.count(value - i) > 0) {
