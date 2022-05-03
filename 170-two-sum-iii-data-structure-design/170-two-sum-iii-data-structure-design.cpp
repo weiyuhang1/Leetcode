@@ -1,25 +1,23 @@
 class TwoSum {
 public:
-    vector<int> vect;
+    unordered_multiset<long> nums;
     TwoSum() {
-
         
     }
     
-    void add(int number) 
-    {
-        vect.push_back(number);
+    void add(int number) {
+        nums.insert(number);
         
     }
     
     bool find(int value) {
-        sort(vect.begin(), vect.end());
-        int l = 0;
-        int r = vect.size() - 1;
-        while (l < r) {
-            if (vect[l] + vect[r] == value) return true;
-            if (vect[l] + vect[r] < value) l += 1;
-            if (vect[l] + vect[r] > value) r -= 1;
+        for (long i : nums) {
+            if (i * 2 == value) {
+                if (nums.count(value - i) > 1)
+                    return true;
+            } else if (nums.count(value - i) > 0) {
+                return true;
+            }
         }
         return false;
         
