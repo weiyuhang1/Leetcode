@@ -1,15 +1,16 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        int next = n;
-        unordered_set<int> set;
-        while (set.count(next) == 0) {
-            set.insert(next);
-            next = getNext(next);
-
-            if (next == 1) return true;
+        int slow = n;
+        int fast = getNext(n);
+        while (fast != 1 && slow != fast) {
+            slow = getNext(slow);
+            fast = getNext(fast);
+             fast = getNext(fast);
         }
-        return false;
+        
+
+        return fast == 1;
 
     }
 private:
