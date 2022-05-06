@@ -14,7 +14,9 @@ public:
     TreeNode* invertTree(TreeNode* root) {
 			if(root==NULL)
 				return NULL;
-			TreeNode* temp = new TreeNode(root->val);// create node with (NULL, val, NULL)
+			TreeNode* temp = new TreeNode();// create node with (NULL, val, NULL)
+        temp->val = root->val;
+
 
 		//	if(root->right)//if root->right is Not NULL, it will assign it to temp->left : else let it be NULL 
 				temp-> left = invertTree(root->right);
