@@ -12,11 +12,17 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        if (root == nullptr) return nullptr;
-        swap(root->left, root->right);
-        invertTree(root->right);
-        invertTree(root->left);
-        
-        return root;
+			if(root==NULL)
+				return NULL;
+			TreeNode* temp = new TreeNode(root->val);// create node with (NULL, val, NULL)
+
+			if(root->right)//if root->right is Not NULL, it will assign it to temp->left : else let it be NULL 
+				temp-> left = invertTree(root->right);
+
+			if(root->left)// same as before
+				temp-> right = invertTree(root->left); 
+
+			return temp;//return temp node
+		
     }
 };
