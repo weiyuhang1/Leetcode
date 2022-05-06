@@ -3,7 +3,7 @@ public:
     bool isHappy(int n) {
         int next = n;
         unordered_set<int> set;
-        while (set.find(next) == set.end()) {
+        while (set.count(next) == 0) {
             set.insert(next);
             next = getNext(next);
 
