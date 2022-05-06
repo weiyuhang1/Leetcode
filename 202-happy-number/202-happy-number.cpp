@@ -14,12 +14,12 @@ public:
     }
 private:
     int getNext(int n) {
-    int result = 0;
+    int square_sum = 0;
             while (n > 0) {
-                result += pow((n % 10), 2);
+                square_sum += pow((n % 10), 2);
                 n /= 10;
             }
-    return result;
+    return square_sum;
 } 
     
 };
