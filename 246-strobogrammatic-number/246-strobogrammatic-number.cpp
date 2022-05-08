@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isStrobogrammatic(string num) {
-        for (int i = 0; i < num.length(); i++) {
+        for (int i = 0; i < num.length() / 2 + 1; i++) {
             if (!helper(num[i], num[num.length() - 1 - i]))
                 return false;
         }
