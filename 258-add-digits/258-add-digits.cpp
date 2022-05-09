@@ -2,11 +2,11 @@ class Solution {
 private:
     int SumOfDigits(int num) {
         int sum = 0;
-        while (num / 10 > 0) {
+        while (num > 0) {
             sum += num % 10;
             num /= 10;
         }
-        return sum + num;
+        return sum;
     }
 public:
     int addDigits(int num) {
