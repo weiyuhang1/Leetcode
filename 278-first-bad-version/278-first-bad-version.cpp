@@ -7,9 +7,9 @@ public:
         int l = 1;
         if (isBadVersion(l)) return l;
         int r = n;
-      
+        int mid;
         while (l < r - 1) {
-            int mid = l + (r - l) / 2;
+            mid = l + (r - l) / 2;
             if (isBadVersion(mid)) {
                 r = mid;
             } else {
