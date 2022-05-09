@@ -15,11 +15,9 @@ public:
     int closestValue(TreeNode* root, double target) {
 
    //     if (root->left == nullptr && root->right == nullptr) return root->val;
-        if (target > root->val) {
-            if (root->right)
+        if (target > root->val && root->right) {
                 return target - root->val < abs(closestValue(root->right, target) - target) ? root->val : closestValue(root->right, target);
-        } else {
-            if (root->left)
+        } else if (target < root->val && root->left) {
                 return root->val - target < abs(closestValue(root->left, target) - target) ? root-> val : closestValue(root->left, target);
         }
         return root->val;
