@@ -33,7 +33,7 @@ private:
         
     }
     
-    string format_path(vector<int>& nums) {
+    string format_path(vector<int> nums) {
         string result;
         for (int i = 0; i < nums.size() - 1; i++) {
             result += to_string(nums[i]) + "->";
