@@ -1,7 +1,6 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        if (s.length() == 1) return 1;
         unordered_map<char, int> mp;
         int len = 0;
         int lenmax = 0;
