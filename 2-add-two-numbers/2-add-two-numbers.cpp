@@ -18,7 +18,7 @@ public:
         int sum = 0;
         int carry = 0;
         
-        while (cur1 || cur2 || carry > 0) {
+        while (true) {
             if (cur1) {
                 sum += cur1->val;
                 cur1 = cur1->next;
@@ -34,6 +34,8 @@ public:
             if (cur1 || cur2 || carry) {
                 cur->next = new ListNode();
                 cur = cur->next;
+            } else {
+                return l;
             }
             
         }
