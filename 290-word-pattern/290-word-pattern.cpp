@@ -1,10 +1,10 @@
 class Solution {
 public:
     bool wordPattern(string pattern, string s) {
-        stringstream ss(s);
+        istringstream ss(s);
         string word;
         vector<string> words;
-        while (getline(ss, word, ' ')) {
+        while (ss >> word) {
             words.push_back(word);
         }
    //     vector<string> p(26,"!!");
