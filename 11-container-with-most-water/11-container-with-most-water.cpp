@@ -12,7 +12,10 @@ public:
                 }
                 while (l + 1 < r && height[l] <= h);
             } else {
-                r--;
+                int h = height[r];
+                do {
+                    r--;
+                } while (r - 1 > l && height[r] <= h);
             }
             area = max(area, min(height[r], height[l]) * (r - l));
                 
