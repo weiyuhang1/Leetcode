@@ -15,7 +15,7 @@ public:
         return result;
     }
 private:
-      void twoSum(vector<int>& numbers, int i, vector<vector<int>>& result) {
+      void twoSum(vector<int> numbers, int i, vector<vector<int>>& result) {
         int l = i + 1;
         int r = numbers.size() - 1;
         int sum;
