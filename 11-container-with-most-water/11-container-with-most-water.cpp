@@ -6,7 +6,11 @@ public:
         int area = min(height[r], height[l]) * (r - l);
         while (l < r - 1) {
             if (height[l] < height[r]) {
-                l++;
+                int h = height[l];
+                do {
+                    l++;
+                }
+                while (l + 1 < r && height[l] <= h);
             } else {
                 r--;
             }
