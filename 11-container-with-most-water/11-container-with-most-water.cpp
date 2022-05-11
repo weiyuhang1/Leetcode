@@ -4,15 +4,16 @@ public:
         int l = 0;
         int r = height.size() - 1;
         int area = min(height[r], height[l]) * (r - l);
+        int h = 0;
         while (l < r - 1) {
             if (height[l] < height[r]) {
-                int h = height[l];
+                h = height[l];
                 do {
                     l++;
                 }
                 while (l + 1 < r && height[l] <= h);
             } else {
-                int h = height[r];
+                h = height[r];
                 do {
                     r--;
                 } while (r - 1 > l && height[r] <= h);
