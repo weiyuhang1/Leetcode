@@ -4,8 +4,8 @@ public:
         sort(nums.begin(), nums.end());
         int closest_sum = INT_MAX;
         int diff = INT_MAX;
-                int sum;
-        for (int i = 0; i < nums.size(); i++) {
+        int sum;
+        for (int i = 0; i < nums.size() && diff != 0; i++) {
             int l = i + 1;
             int r = nums.size() - 1;
     
@@ -14,22 +14,13 @@ public:
                 if (diff > abs(target - sum)) {
                     closest_sum = sum;
                     diff = abs(target - sum);
-                }
-                if (sum == target){
-                    return sum;
-                
                 } else if (sum < target) {
-          
                     l++;
                 } else {
                      r--;
                 }
             }
-            }
-         
-        
-        
+        }
         return closest_sum;
     }
-
 };
