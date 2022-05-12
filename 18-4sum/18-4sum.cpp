@@ -5,6 +5,7 @@ public:
         sort(nums.begin(), nums.end());
         int l, r, sum, subtarget;
         for (int i = 0; i < nums.size(); i++) {
+      //      if ((nums[i] + nums [i+1])> (target - nums[i + 2] - nums[i + 3])) return result;
             if (i == 0 || nums[i] != nums[i - 1]) {
             for (int j = i + 1; j < nums.size(); j++) {
                 if (j == i + 1 || nums[j] != nums[j - 1]) {
