@@ -5,9 +5,9 @@ public:
         sort(nums.begin(), nums.end());
         int l, r, sum, subtarget;
         for (int i = 0; i < nums.size(); i++) {
-            if (i != 0 && nums[i] == nums[i - 1]) continue;
+            if (i == 0 || nums[i] != nums[i - 1]) {
             for (int j = i + 1; j < nums.size(); j++) {
-                if (j != i + 1 && nums[j] == nums[j - 1]) continue;
+                if (j == i + 1 || nums[j] != nums[j - 1]) {
                 l = j + 1;
                 r = nums.size() - 1;
                 while (l < r) {
@@ -26,6 +26,8 @@ public:
                     
                 }
             
+            }
+            }
             }
         }
         return result;
