@@ -2,14 +2,14 @@ class Solution {
 public:
     
     vector<string> restoreIpAddresses(string s) {
-            vector<int> ip;
+            vector<string> ip;
         backtracking(s, 0, 4, ip, result);
         return result;
     }
 private:
     vector<string> result;
 
-    void backtracking(string& s, int startindex, int k, vector<int>& ip,  vector<string>& result) {
+    void backtracking(string& s, int startindex, int k, vector<string>& ip,  vector<string>& result) {
         if (k == 0) {
             if (startindex >= s.size()) {
                 result.push_back(print(ip));
@@ -20,7 +20,7 @@ private:
         for (int i = 1; i <= 3 && startindex + i <= s.size(); i++) {
             string str = s.substr(startindex, i);
             if (validIP(str)) {
-                ip.push_back(stoi(str));
+                ip.push_back(str);
                 backtracking(s, i + startindex, k - 1, ip, result);
                 ip.pop_back();
             } else {
@@ -28,12 +28,12 @@ private:
             }
         }
     }
-    string print(vector<int> ip) {
+    string print(vector<string> ip) {
         string str;
         for (int i = 0; i < ip.size() - 1; i++) {
-            str += to_string(ip[i]) + ".";
+            str += ip[i] + ".";
         }
-        str += to_string(ip[ip.size() - 1]);
+        str += ip.back();
         return str;
     }
     bool validIP(string& str) {
