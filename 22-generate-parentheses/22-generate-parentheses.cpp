@@ -10,7 +10,7 @@ public:
 private:
     vector<string> result;
     string path;
-    void backtracking(int&l, int& r) {
+    void backtracking(int l, int r) {
         if (l == 0 && r == 0) {
             result.push_back(path);
             return;
