@@ -17,7 +17,7 @@ private:
     vector<string> path;
     bool backtracking(int ticketnum) {
         if (path.size() ==ticketnum + 1) return true;
-    if (mp.find(path.back()) == mp.end()) return false;
+  //  if (mp.find(path.back()) == mp.end()) return false;
     for (auto& target : mp[path.back()]) {
         if (target.second > 0) {
            
