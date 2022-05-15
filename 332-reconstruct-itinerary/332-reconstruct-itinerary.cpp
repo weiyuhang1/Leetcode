@@ -18,7 +18,7 @@ private:
     bool backtracking(int ticketnum) {
         if (path.size() ==ticketnum + 1) return true;
     if (mp.find(path.back()) == mp.end()) return false;
-    for (pair<const string, int>& target : mp[path.back()]) {
+    for (auto& target : mp[path.back()]) {
         if (target.second > 0) {
             path.push_back(target.first);
             target.second--;
