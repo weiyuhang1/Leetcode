@@ -25,7 +25,7 @@ private:
             path.push_back(target.first);
             if (backtracking(ticketnum)) return true;
             path.pop_back();
-            target.second++;
+            mp[path.back()][target.first]++;
         }
     }
     return false;
