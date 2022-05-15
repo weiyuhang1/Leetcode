@@ -20,8 +20,9 @@ private:
     if (mp.find(path.back()) == mp.end()) return false;
     for (auto& target : mp[path.back()]) {
         if (target.second > 0) {
+           
+            mp[path.back()][target.first]--;
             path.push_back(target.first);
-            target.second--;
             if (backtracking(ticketnum)) return true;
             path.pop_back();
             target.second++;
