@@ -19,8 +19,9 @@ public:
         st.push(root);
         while (!st.empty()) {
             cur = st.top();
-            nodes.push_back(cur->val);
             st.pop();
+            nodes.push_back(cur->val);
+            
             if (cur->left) st.push(cur->left);
             if (cur->right) st.push(cur->right);
         }
