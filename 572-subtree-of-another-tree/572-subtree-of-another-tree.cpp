@@ -15,10 +15,7 @@ public:
         if (root == nullptr && subRoot == nullptr) return true;
         if (root == nullptr || subRoot == nullptr) return false;
         
-        //traversal of tree root
-        
-        
-        
+        //traversal of tree root   
         if (isSametree(root, subRoot)) return true;
         if (isSubtree(root->left, subRoot)) return true;
         if (isSubtree(root->right, subRoot)) return true;
