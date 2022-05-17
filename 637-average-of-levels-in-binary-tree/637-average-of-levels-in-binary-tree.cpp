@@ -18,7 +18,7 @@ public:
         if (root != nullptr) q.push(root);
         while (!q.empty()) {
             int size = q.size();
-            vector<double> level;            
+            vector<long> level;            
             for (int i = 0; i < size; i++) {
                 cur = q.front();
                 q.pop();
