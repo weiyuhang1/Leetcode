@@ -12,6 +12,12 @@
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        
+        return traversal(inorder, postorder);
+        
+    }
+private:
+    TreeNode* traversal(vector<int>& inorder, vector<int>& postorder) {
         if (postorder.empty()) return nullptr;
         //root node
         TreeNode* root = new TreeNode(postorder.back());
@@ -32,6 +38,6 @@ public:
         root->left = buildTree(leftinorder, leftpostorder);
         root->right = buildTree(rightinorder, rightpostorder);
         return root;
-        
     }
+    
 };
