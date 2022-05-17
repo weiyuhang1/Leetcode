@@ -26,7 +26,7 @@ public:
                 if (cur->left) q.push(cur->left);
                 if (cur->right) q.push(cur->right);
             }
-            double average = accumulate(level.begin(), level.end(), 0.0) / size;
+            double average = accumulate(level.begin(), level.end(), 0.0) / double(size);
             result.push_back(average);
             
         }
