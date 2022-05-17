@@ -28,10 +28,11 @@ public:
         while (!st.empty()) {
             cur = st.top();
             st.pop();
+                        result.push_back(cur->val);
             for (auto child : cur->children) {
                 if (child) st.push(child);
             }
-            result.push_back(cur->val);
+
         }
         reverse(result.begin(), result.end());
         return result;
