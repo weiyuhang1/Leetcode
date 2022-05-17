@@ -22,11 +22,11 @@ public:
         if (root == nullptr) return root;
         Node* leftmost = root;
         Node* cur;
-    
+        Node* pre = nullptr;
         while (leftmost) {
             cur = leftmost;
             leftmost = nullptr;
-            Node* pre = nullptr;
+            
             while (cur) {
                 processChild(cur->left, pre, leftmost);
                 processChild(cur->right, pre, leftmost);
@@ -38,7 +38,7 @@ public:
 private:
     void processChild(Node* child, Node*& pre, Node*& leftmost) {
         if (child == nullptr) return;
-        if (pre == nullptr) {
+        if (leftmost == nullptr) {
             pre = child;
             leftmost = child;
         } else {
