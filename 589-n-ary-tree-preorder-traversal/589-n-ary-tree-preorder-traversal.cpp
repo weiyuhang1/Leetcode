@@ -30,7 +30,7 @@ private:
     void traversal(Node* root, vector<int>& result) {
         if (root == nullptr) return;
         result.push_back(root->val);
-        for (Node* child : root->children) {
+        for (auto child : root->children) {
             traversal(child, result);
         }
     }
