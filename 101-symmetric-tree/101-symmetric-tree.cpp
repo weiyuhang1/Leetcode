@@ -13,7 +13,7 @@ class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
         if (root == nullptr) return true;
-        return isMirror(root, root);
+        return isMirror(root->left, root->right);
     }
 private:
     bool isMirror(TreeNode* root1, TreeNode* root2) {
