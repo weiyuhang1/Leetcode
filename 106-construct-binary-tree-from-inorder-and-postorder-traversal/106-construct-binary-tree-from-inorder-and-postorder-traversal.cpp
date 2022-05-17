@@ -16,7 +16,7 @@ public:
         //root node
         TreeNode* root = new TreeNode(postorder.back());
         if (postorder.size() == 1) return root;
-        postorder.resize(postorder.size() - 1);
+     //   postorder.resize(postorder.size() - 1);
         int index;
         for (int i = 0; i< inorder.size(); i++) {
             if (inorder[i] == root->val) {
@@ -28,7 +28,7 @@ public:
         vector<int> rightinorder(inorder.begin() + index + 1, inorder.end());
         
         vector<int> leftpostorder(postorder.begin(), postorder.begin() + leftinorder.size());
-        vector<int> rightpostorder(postorder.begin() + leftinorder.size(), postorder.end());
+        vector<int> rightpostorder(postorder.begin() + leftinorder.size(), postorder.end() - 1);
         root->left = buildTree(leftinorder, leftpostorder);
         root->right = buildTree(rightinorder, rightpostorder);
         return root;
