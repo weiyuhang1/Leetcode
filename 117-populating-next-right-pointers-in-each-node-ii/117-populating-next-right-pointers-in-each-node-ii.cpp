@@ -22,6 +22,7 @@ public:
         if (root == nullptr) return root;
         Node* leftmost = root;
         Node* cur;
+    
         while (leftmost) {
             cur = leftmost;
             leftmost = nullptr;
