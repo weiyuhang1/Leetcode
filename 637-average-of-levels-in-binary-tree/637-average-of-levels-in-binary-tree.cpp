@@ -18,7 +18,7 @@ public:
         if (root != nullptr) q.push(root);
         while (!q.empty()) {
             int size = q.size();
-            vector<long> level;            
+            vector<double> level;            
             for (int i = 0; i < size; i++) {
                 cur = q.front();
                 q.pop();
@@ -26,7 +26,7 @@ public:
                 if (cur->left) q.push(cur->left);
                 if (cur->right) q.push(cur->right);
             }
-            double average = double (accumulate(level.begin(), level.end(), 0.0)) / double(level.size());
+            double average = accumulate(level.begin(), level.end(), 0.0) / size;
             result.push_back(average);
             
         }
