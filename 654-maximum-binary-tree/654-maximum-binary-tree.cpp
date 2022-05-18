@@ -16,7 +16,7 @@ public:
     }
 private:
     TreeNode* helper(vector<int>& nums, int arraybegin, int arrayend) {
-        if (arraybegin == arrayend) return nullptr;
+        if (arraybegin >= arrayend) return nullptr;
         int maxelement = INT_MIN;
         int index;
         for (int i = arraybegin; i < arrayend; i++) {
