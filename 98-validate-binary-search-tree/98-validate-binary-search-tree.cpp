@@ -13,28 +13,19 @@ class Solution {
 public:
     bool isValidBST(TreeNode* root) {
         if (root == nullptr) return true;
-        long leftmax = LONG_MIN;
-        long rightmin = LONG_MAX;
-        findmax(root->left, leftmax);
-        findmin(root->right, rightmin);  
-        return (leftmax < root->val) &&
-            (rightmin > root->val) &&
-            isValidBST(root->left) && isValidBST(root->right);
-        
+        inorder(root);
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] <= nums[i - 1]) return false;
+        }
+        return true;
     }
 private:
-    void findmax(TreeNode* root, long& largest) {
+    vector<int> nums;
+    void inorder(TreeNode* root) {
         if (root == nullptr) return;
-        if (root->val > largest) largest = root->val;
-        findmax(root->left, largest);
-        findmax(root->right, largest);
+        inorder(root->left);
+        nums.push_back(root->val);
+        inorder(root->right);
     }
-    void findmin(TreeNode* root, long& smallest) {
-        if (root == nullptr) return;
-        if (root->val < smallest) smallest = root->val;
-        findmin(root->left, smallest);
-        findmin(root->right, smallest);
-    }
-    
     
 };
