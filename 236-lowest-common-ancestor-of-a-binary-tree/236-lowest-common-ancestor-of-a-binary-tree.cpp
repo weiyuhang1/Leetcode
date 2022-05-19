@@ -15,7 +15,6 @@ public:
     }
 private:
     TreeNode* cur;
-    int sum;
     int helper(TreeNode* root, TreeNode* p, TreeNode* q) {
         if (root == nullptr) return 0;
         if(helper(root->left, p, q) == 2) return 2;
