@@ -27,7 +27,7 @@ private:
         return find(u) == find(v);
     }
     void unionSet(int u, int v) {
-        parent[find(u)] = parent[v];
+        parent[find(u)] = parent[v]; //make root of u child of root of v;
     }
     
     
