@@ -35,7 +35,7 @@ private:
     string path;
     unordered_set<string> result;
     void backtracking(vector<vector<char>>& board, int i, int j, vector<vector<bool>>& used, TrieNode* root) {
-        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || used[i][j] == true || root == nullptr
+        if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || used[i][j] == true 
            || root->children[board[i][j] - 'a'] == nullptr) return;
         path += board[i][j];
         used[i][j] = true;
