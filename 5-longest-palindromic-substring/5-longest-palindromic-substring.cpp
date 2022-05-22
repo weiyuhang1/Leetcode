@@ -13,7 +13,7 @@ public:
                 end = i + len / 2;
             }
         }
-        return s.substr(start, lenmax);
+        return s.substr(start, end - start + 1);
     }
 private:
     int expandAroundCenters(string& s, int left, int right) {
