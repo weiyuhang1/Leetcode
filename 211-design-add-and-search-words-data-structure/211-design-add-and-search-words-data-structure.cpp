@@ -33,6 +33,8 @@ public:
         return searchNode(word, root, 0);
     }
     bool searchNode(string& word, Word* root, int startindex) {
+      //  if (startindex >= word.size()) return true;
+        if (root == nullptr) return false;
         Word* cur = root;
         for (int i = startindex; i < word.size() && cur; i++) {
             if (word[i] == '.') {
