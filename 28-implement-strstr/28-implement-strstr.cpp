@@ -10,7 +10,7 @@ public:
             
                 if (j == needle.size())
                  return i - j;
-            } else if (haystack[i] != needle[j]) {
+            } else {
                 if (j != 0) {
                     j = lps[j - 1];
                 } else {
