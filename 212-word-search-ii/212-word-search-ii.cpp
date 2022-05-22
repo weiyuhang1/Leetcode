@@ -57,23 +57,4 @@ private:
         }
         cur->isEnd = true;
     }
-    bool searchPrefix(TrieNode* root, string& prefix) {  
-        TrieNode* cur = root;
-        for (int i = 0; i < prefix.size(); i++) {
-            if (cur->children[prefix[i] - 'a'] == nullptr) return false;
-            cur = cur->children[prefix[i] - 'a'];
-        }
-        return true;
-    }
-    bool searchWord(TrieNode* root, string& word) {  
-        TrieNode* cur = root;
-        for (int i = 0; i < word.size(); i++) {
-            if (cur->children[word[i] - 'a'] == nullptr) return false;
-            cur = cur->children[word[i] - 'a'];
-        }
-        return cur->isEnd;
-    }
-    
-    
-    
 };
