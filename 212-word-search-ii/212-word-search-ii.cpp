@@ -24,23 +24,22 @@ public:
                 backtracking(board, i, j, used, root);
             }
         }
-        vector<string> result_vector;
-        for (const string& element : result) {
-            result_vector.push_back(element);
-        }
-        return result_vector;
+        return result;
     }
 private:
     TrieNode* root;
     string path;
-    unordered_set<string> result;
+    vector<string> result;
     void backtracking(vector<vector<char>>& board, int i, int j, vector<vector<bool>>& used, TrieNode* root) {
         if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || used[i][j] == true 
            || root->children[board[i][j] - 'a'] == nullptr) return;
         path += board[i][j];
         used[i][j] = true;
         root = root->children[board[i][j] - 'a'];
-        if (root->isEnd == true) result.insert(path); //needs path -=
+        if (root->isEnd == true) {
+            result.push_back(path); //needs path -=
+            root->isEnd = false;
+        }
         
         backtracking(board, i - 1, j, used, root);
         backtracking(board, i + 1, j, used, root);
