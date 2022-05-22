@@ -36,7 +36,7 @@ public:
       //  if (startindex >= word.size()) return true;
         if (root == nullptr) return false;
         Word* cur = root;
-        for (int i = startindex; i < word.size() && cur; i++) {
+        for (int i = startindex; i < word.size(); i++) {
             if (word[i] == '.') {
                 for (int j = 0; j < 26; j++) {
                     if (searchNode(word, cur->children[j], i + 1))
@@ -49,7 +49,7 @@ public:
             }
             cur = cur->children[word[i] - 'a'];
         }
-        return cur && cur->isEnd;
+        return cur->isEnd;
     }
 };
 
