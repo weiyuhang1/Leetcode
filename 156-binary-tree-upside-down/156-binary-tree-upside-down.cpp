@@ -15,12 +15,7 @@ public:
         if (root == nullptr || (!root->left && !root->right))
             return root;
         TreeNode* leftroot = upsideDownBinaryTree(root->left);
-        TreeNode* rightmost = leftroot;
-        while (rightmost->right) {
-            rightmost = rightmost->right;
-        }
-        
-        
+        TreeNode* rightmost = root->left;        
         rightmost->right = root;
         
         rightmost->left = root->right;
