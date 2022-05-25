@@ -26,10 +26,6 @@ public:
         rightmost->left = root->right;
         root->left = nullptr;
         root->right= nullptr;
-        if (rightmost->left) {
-            rightmost->left->left = nullptr;
-            rightmost->left->right = nullptr;
-        }
         
         return leftroot;
         
