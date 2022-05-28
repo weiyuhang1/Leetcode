@@ -10,9 +10,9 @@ private:
             int i;
             vector<int> median((n + 4) / 5);
             for (i = 0; i < n / 5; i++)
-                median[i] = findMedian(nums, l + i * 5, l + i * 5 + 4);
+                median[i] = findMedian(nums, l + i * 5, 5);
             if (i * 5 < n) {
-                median[i] = findMedian(nums, l + i * 5, l + i * 5 + n % 5 - 1);
+                median[i] = findMedian(nums, l + i * 5, n % 5);
                 i++;
             }
             int medofmed = (i == 1) ? median[0] : KthSmallest(median, 0, i - 1, i / 2);
@@ -29,9 +29,9 @@ private:
         return INT_MAX;
         
     }
-    int findMedian(vector<int>& nums, int l, int r) {
-        sort(nums.begin() + l, nums.begin() + r + 1);
-        return nums[l + (r - l) / 2]; 
+    int findMedian(vector<int>& nums, int l, int n) {
+        sort(nums.begin() + l, nums.begin() + l + n);
+        return nums[l + n / 2]; 
     }
     
     int partition(vector<int>& nums, int l, int r, int x) {
