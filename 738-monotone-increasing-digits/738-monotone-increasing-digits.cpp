@@ -1,7 +1,6 @@
 class Solution {
 public:
     int monotoneIncreasingDigits(int n) {
-        if (n / 10 == 0) return n;
         string num = to_string(n);
         int flag = num.size();
         int i;
