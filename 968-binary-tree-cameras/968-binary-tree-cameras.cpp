@@ -10,26 +10,26 @@
  * };
  */
 class Solution {
-    //0 covered, 1 has monitor, 2 uncovered
+    //0 uncovered, 1 has monitor, 2 covered
 public:
     int minCameraCover(TreeNode* root) {
         result = 0;
-        if (postorder(root) == 2) result++;
+        if (postorder(root) == 0) result++;
         return result;
     }
 private:
     int result;
     int postorder(TreeNode* root) {
-        if (root == nullptr) return 0;
+        if (root == nullptr) return 2;
         int left = postorder(root->left);
         int right = postorder(root->right);
         
-        if (left == 0 && right == 0) return 2;      
-        if (left == 2 || right == 2) {
+        if (left == 2 && right == 2) return 0;      
+        if (left == 0 || right == 0) {
             result++;
             return 1;
         }
-        return 0;
+        return 2;
     }
     
     
