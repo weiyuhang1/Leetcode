@@ -9,7 +9,7 @@ public:
         }
         
         unordered_map<int, vector<int>> buckets;
-        for (auto p : count) {
+        for (pair<int, int> p : count) {
             buckets[p.second].push_back(p.first);
         }
         vector<int> result;
