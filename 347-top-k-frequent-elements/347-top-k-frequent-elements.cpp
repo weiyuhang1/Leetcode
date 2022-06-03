@@ -14,7 +14,7 @@ public:
         }
         vector<int> result;
         for (int i = max_freq; i >= 1; i--) {
-            auto it = buckets.find(i);
+            unordered_map<int, vector<int>>::iterator it = buckets.find(i);
             if (it == buckets.end()) continue;
             for (int e : it->second) {
                 result.push_back(e);
