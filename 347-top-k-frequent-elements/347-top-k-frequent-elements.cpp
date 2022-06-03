@@ -16,7 +16,7 @@ public:
         for (int i = max_freq; i >= 1; i--) {
             auto it = buckets.find(i);
             if (it == buckets.end()) continue;
-            for (auto e : it->second) {
+            for (int e : it->second) {
                 result.push_back(e);
             }
             if (result.size() == k) return result;
