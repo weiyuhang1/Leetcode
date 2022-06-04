@@ -8,7 +8,7 @@ public:
         for (int end = 0; end < s.size(); end++) {
             count[s[end] - 'A']++;
             maxcount = max(maxcount, count[s[end] - 'A']);
-            while (end - start + 1 - maxcount > k) {
+            if (end - start + 1 - maxcount > k) {
               
                 count[s[start] - 'A']--;
                 start++;
