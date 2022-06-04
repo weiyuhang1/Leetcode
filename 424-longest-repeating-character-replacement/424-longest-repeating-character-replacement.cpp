@@ -12,7 +12,7 @@ public:
               
                 count[s[start] - 'A']--;
                 start++;
-                maxcount = 0;
+          //      maxcount = 0;
                 for (int i = 0; i < count.size(); i++) {
                     if (count[i] > maxcount) maxcount = count[i];
                 }
