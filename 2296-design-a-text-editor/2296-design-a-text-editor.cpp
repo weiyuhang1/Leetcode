@@ -1,30 +1,43 @@
 class TextEditor {
 public:
-string before, after;
-void addText(string text) {
-    before.insert(before.end(), text.begin(), text.end());
-}
-int deleteText(int k) {
-    int tmp = min(k, int(before.size()));
-            while (k-- && !before.empty()) {
+    TextEditor() {
+        //before cursor string and after cursor string
+
+    }
+    
+    void addText(string text) {
+        before.insert(before.end(), text.begin(), text.end());
+        
+    }
+    
+    int deleteText(int k) {
+        int tmp = min(k, int(before.size()));
+        while (k-- && !before.empty()) {
             before.pop_back();
         }
         return tmp;
-}
-string cursorLeft(int k) {
-    while(k-- && !before.empty()) {
-        after.push_back(before.back());
-        before.pop_back();
     }
-    return before.substr(before.size() - min((int)before.size(), 10));
-}
-string cursorRight(int k) {
-    while(k-- && !after.empty()) {
-        before.push_back(after.back());
-        after.pop_back();
+    
+    string cursorLeft(int k) {
+        while (k-- && !before.empty()) {
+            after.push_back(before.back());
+            before.pop_back();
+        }
+        int len = min(10, int(before.length()));
+        return before.substr(before.size() - len, len);
     }
-    return before.substr(before.size() - min((int)before.size(), 10));
-}
+    
+    string cursorRight(int k) {
+        while (k-- && !after.empty()) {
+            before.push_back(after.back());
+            after.pop_back();
+        }
+        int len = min(10, int(before.length()));
+        return before.substr(before.size() - len, len);
+        
+    }
+private:
+    string before, after;
     
 };
 
