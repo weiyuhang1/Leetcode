@@ -12,9 +12,7 @@ public:
     
     int deleteText(int k) {
         int tmp = min(k, int(before.size()));
-        while (k-- && !before.empty()) {
-            before.pop_back();
-        }
+        before.resize(before.size() - tmp);
         return tmp;
     }
     
