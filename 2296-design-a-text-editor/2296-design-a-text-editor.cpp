@@ -5,9 +5,11 @@ void addText(string text) {
     before.insert(before.end(), text.begin(), text.end());
 }
 int deleteText(int k) {
-    k = min(k, (int)before.size());
-    before.resize(before.size() - k);
-    return k;
+    int tmp = min(k, int(before.size()));
+            while (k-- && !before.empty()) {
+            before.pop_back();
+        }
+        return tmp;
 }
 string cursorLeft(int k) {
     while(k-- && !before.empty()) {
