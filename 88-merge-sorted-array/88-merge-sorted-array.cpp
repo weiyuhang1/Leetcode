@@ -17,8 +17,6 @@ public:
                 k++;
             }
         }
-            while (i < nums1.size())
-                nums1[k++] = nums1[i++];
             while (j < nums2.size())
                 nums1[k++] = nums2[j++];
     }
