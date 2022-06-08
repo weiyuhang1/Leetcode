@@ -1,58 +1,33 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        return KthSmallest(nums, 0, nums.size() - 1, nums.size() - k + 1);
+        return nums[findKthSmallest(nums, nums.size() - k, 0, nums.size() - 1)];
     }
-private:
-    int KthSmallest(vector<int>& nums, int l, int r, int k) {
-        if (k > 0 && k <= r - l + 1) {
-            int n = r - l + 1;
-            int i;
-            vector<int> median((n + 4) / 5);
-            for (i = 0; i < n / 5; i++)
-                median[i] = findMedian(nums, l + i * 5, 5);
-            if (i * 5 < n) {
-                median[i] = findMedian(nums, l + i * 5, n % 5);
+    int partition(vector<int>& nums, int p, int r) {
+        int q = p + rand() % (r - p + 1);
+        swap(nums[q], nums[r]);
+        int i = p - 1;
+        for (int j = p; j < r; j++) {
+            if (nums[j] <= nums[r]) {
                 i++;
-            }
-            int medofmed = (i == 1) ? median[0] : KthSmallest(median, 0, i - 1, i / 2);
-            int pos = partition(nums, l, r, medofmed);
-            
-            if (pos - l == k - 1) {
-                return nums[pos];
-            } else if (pos - l > k - 1) {
-                return KthSmallest(nums, l, pos - 1, k);
-            } else {
-                return KthSmallest(nums, pos + 1, r, k -pos + l -1);
-            }
-        }
-        return INT_MAX;
-        
-    }
-    int findMedian(vector<int>& nums, int l, int n) {
-        sort(nums.begin() + l, nums.begin() + l + n);
-        return nums[l + n / 2]; 
-    }
-    
-    int partition(vector<int>& nums, int l, int r, int x) {
-        int i;
-        for (i = l; i < r; i++) {  //left close right open
-            if (nums[i] == x) break;
-        } 
-        swap(nums[i], nums[r]); //skip if x already at the r position
-        
-        //standard partition algorithm
-        i = l;
-        for (int j = l; j < r; j++) {
-            if (nums[j] <= x) {
                 swap(nums[i], nums[j]);
-                i++;
             }
         }
-        swap(nums[i], nums[r]);
-        return i;
-        
-        
+        swap(nums[i + 1], nums[r]);
+        return i + 1;
+    }
+    int findKthSmallest(vector<int>& nums, int k, int l, int r) {
+        if (l == r) return l;
+        if (l > r) return -1;
+        int pivot = partition(nums, l, r);
+        int len = pivot - l + 1;
+        if (pivot == k) {
+            return pivot;
+        } else if (pivot > k) {
+            return findKthSmallest(nums, k, l, pivot - 1);
+        } else {
+            return findKthSmallest(nums, k, pivot + 1, r);
+        }
     }
     
     
