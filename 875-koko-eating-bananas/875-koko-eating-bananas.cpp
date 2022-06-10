@@ -10,7 +10,7 @@ public:
             int mid = lo + (hi - lo) / 2;
             totaltime = 0;
             for (int pile : piles) {
-                totaltime += ceil((double)pile / (double)mid);
+                totaltime += ceil(pile / (double)mid);
             
             }
             if (totaltime > h) {
