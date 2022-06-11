@@ -20,8 +20,8 @@ public:
                 r = m1;
         }
         
-        const int m1 = l;
-        const int m2 = k - l;
+        const int m1 = r;
+        const int m2 = k - m1;
         
         const int c1 = max(m1 <= 0 ? INT_MIN : nums1[m1 - 1], 
                            m2 <= 0 ? INT_MIN : nums2[m2 - 1]);
