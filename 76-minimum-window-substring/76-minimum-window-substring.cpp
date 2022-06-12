@@ -3,7 +3,7 @@ public:
     string minWindow(string S, string T) {
     string result;
     if(S.empty() || T.empty()){
-        return result;
+ //       return result;
     }
     unordered_map<char, int> map;
     for(int i = 0; i < T.length(); i++){
