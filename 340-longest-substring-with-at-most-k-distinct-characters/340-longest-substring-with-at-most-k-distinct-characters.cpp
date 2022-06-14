@@ -22,10 +22,10 @@ public:
 
            
             }
-                                maxlen = max(maxlen, j - i + 1);
+            maxlen = max(maxlen, j - i + 1);
         }
         
-        if (i == 0) maxlen = s.length();
+    //    if (i == 0) maxlen = s.length();
         return maxlen;
     }
 }; 
