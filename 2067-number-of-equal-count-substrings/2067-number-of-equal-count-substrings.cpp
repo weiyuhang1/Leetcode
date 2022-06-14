@@ -1,11 +1,11 @@
 class Solution {
 public:
     int equalCountSubstrings(string s, int count) {
-        const int maxunique = unordered_set<char>(s.begin(), s.end()).size();
+     //   const int maxunique = unordered_set<char>(s.begin(), s.end()).size();
         
         const int n = s.length();
         int times = 0;
-        for (int uniquechar = 1; uniquechar * count <= n && uniquechar <= maxunique; uniquechar++) {
+        for (int uniquechar = 1; uniquechar * count <= n && uniquechar <= 26; uniquechar++) {
             unordered_map<char, int> mp;
             int len = uniquechar * count;
             for (int j = 0; j < n; j++) {
