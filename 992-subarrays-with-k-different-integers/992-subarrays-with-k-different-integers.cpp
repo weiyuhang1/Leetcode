@@ -16,7 +16,7 @@ private:
             } else {
                 mp[nums[j]] = j;
                           int startindex = INT_MAX;
-                for (pair<int, int> pair : mp) {
+                for (const pair<int, int>& pair : mp) {
                     if (pair.second  < startindex) {
                         startnum = pair.first;
                         startindex = pair.second;
