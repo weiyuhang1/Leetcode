@@ -23,22 +23,23 @@ class Solution {
 public:
     Node* cloneGraph(Node* node) {
         if (node == nullptr) return nullptr;
-        return dfs(node);    
+        dfs(node);
+        return mp[node];
     }
 private:
     unordered_map<Node*, Node*> mp;
-    Node* dfs(Node* node) {
+    void dfs(Node* node) {
         Node* nodecopy = new Node(node->val);
         mp[node] = nodecopy;
         for (Node* it : node->neighbors) {
             if (mp.find(it) != mp.end()) {
                 nodecopy->neighbors.push_back(mp[it]);
             } else {
-                nodecopy->neighbors.push_back(dfs(it));
+                dfs(it);
+                nodecopy->neighbors.push_back(mp[it]);
             }
         }
-        return nodecopy;
-        
+        return;
         
     }
     
