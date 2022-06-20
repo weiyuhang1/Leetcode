@@ -19,7 +19,7 @@ public:
                 int i = q.front().first;
                 int j = q.front().second;
                 q.pop();
-                for (auto& direction : directions) {
+                for (vector<int>& direction : directions) {
                     int row = i + direction[0];
                     int col = j + direction[1];
                     if (row >= 0 && row < m && col >= 0 && col < n && rooms[row][col] == INT_MAX) {
