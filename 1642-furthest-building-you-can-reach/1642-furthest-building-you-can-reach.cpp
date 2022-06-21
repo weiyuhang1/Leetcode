@@ -5,8 +5,8 @@ public:
         int sum = 0;
         int i;
         for (i = 1; i < heights.size(); i++) {
-            int gap = max(0, heights[i] - heights[i - 1]);
-            pq.push(gap);
+            int gap = heights[i] - heights[i - 1];
+            if (gap > 0) pq.push(gap);
             if (pq.size() > ladders) {
                 sum += pq.top();
                 pq.pop();
