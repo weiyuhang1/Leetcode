@@ -22,7 +22,7 @@ private:
         for (int k : graph[i]) {
             dfs(k, graph, visited);
         }
-        visited[i] = 2;
+    //    visited[i] = 2;
         return;
     }
     
