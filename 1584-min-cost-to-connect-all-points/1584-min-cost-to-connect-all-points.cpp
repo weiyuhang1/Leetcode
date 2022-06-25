@@ -36,10 +36,9 @@ public:
 private:
     vector<int> parent;
     int find(int i) {
-        while (parent[i] != i) {
-            i = parent[i];
-        }
-        return i;
+        if (parent[i] == i) return i;
+        parent[i] = find(parent[i]);
+        return parent[i];
     }
     bool Union(int p1, int p2) {
         int parent1 = find(p1);
