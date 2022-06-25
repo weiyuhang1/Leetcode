@@ -45,7 +45,7 @@ private:
         int parent1 = find(p1);
         int parent2 = find(p2);
         if (parent1 == parent2) return false;  //already in the same tree
-        parent[parent1] = parent2;
+        parent[parent1] = p2;
         return true;
     }
     
