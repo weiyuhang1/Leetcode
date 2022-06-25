@@ -42,8 +42,10 @@ private:
         return i;
     }
     bool Union(int p1, int p2) {
-        if (find(p1) == find(p2)) return false;  //already in the same tree
-        parent[find(p1)] = find(p2);
+        int parent1 = find(p1);
+        int parent2 = find(p2);
+        if (parent1 == parent2) return false;  //already in the same tree
+        parent[parent1] = parent2;
         return true;
     }
     
