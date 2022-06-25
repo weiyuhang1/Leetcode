@@ -14,8 +14,10 @@ public:
         
       
         parent.resize(n);
+        rank.resize(n);
         for (int i = 0; i < n; i++) {
             parent[i] = i;
+            rank[i] = 1;
         }
         
         int sum = 0;
@@ -35,6 +37,7 @@ public:
     }
 private:
     vector<int> parent;
+    vector<int> rank;
     int find(int i) {
         if (parent[i] == i) return i;
         parent[i] = find(parent[i]);
@@ -44,7 +47,14 @@ private:
         int parent1 = find(p1);
         int parent2 = find(p2);
         if (parent1 == parent2) return false;  //already in the same tree
-        parent[parent1] = p2;
+        if (rank[parent1] < rank[parent2]) {
+            parent[parent1] = parent2;
+        } else if (rank[parent1] > rank[parent2]) {
+            parent[parent2] = parent1;
+        } else {
+            parent[parent1] = parent2;
+            rank[parent2]++;
+        }
         return true;
     }
     
