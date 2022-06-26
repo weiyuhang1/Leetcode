@@ -3,7 +3,7 @@ public:
     int coinChange(vector<int>& coins, int amount) {
         if (amount == 0) return 0;
         queue<int> q;
-        unordered_set<int> dp;
+        vector<bool> dp(amount + 1, true);
         for (const int& coin : coins) {
                 q.push(coin);
 
@@ -20,9 +20,9 @@ public:
                 if (val == amount) return round;
                 
                 for (int coin : coins) {
-                    if (coin <= amount - val && dp.find(coin + val) == dp.end()) {
+                    if (coin <= amount - val && dp[coin + val] == true) {
                         q.push(coin + val);
-                        dp.insert(coin + val);
+                        dp[coin + val] = false;
                     }
                 }
                 
