@@ -4,12 +4,8 @@ public:
         if (amount == 0) return 0;
         queue<int> q;
         vector<bool> dp(amount + 1, true);
-        for (const int& coin : coins) {
-                q.push(coin);
-
-            
-        }
-        int round = 1;
+        q.push(0);
+        int round = 0;
 
         while (!q.empty()) {
             int  sz = q.size();
@@ -19,7 +15,7 @@ public:
               
                 if (val == amount) return round;
                 
-                for (int coin : coins) {
+                for (const int& coin : coins) {
                     if (coin <= amount - val && dp[coin + val] == true) {
                         q.push(coin + val);
                         dp[coin + val] = false;
