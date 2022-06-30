@@ -9,18 +9,18 @@ public:
         return dist;
     }
         
-    int partition(vector<int>& nums, int p, int r) {
-        int q = p + rand() % (r - p + 1);
-        swap(nums[q], nums[r]);
-        int i = p - 1;
-        for (int j = p; j < r; j++) {
-            if (nums[j] <= nums[r]) {
-                i++;
-                swap(nums[i], nums[j]);
+     int partition(vector<int>& nums, int l, int r) {
+        int pivot = l + rand() % (r - l + 1);
+        swap(nums[pivot], nums[r]);
+        int j = l - 1;
+        for (int i = l; i < r; i++) {
+            if (nums[i] <= nums[r]) {
+                j++;
+                swap(nums[j], nums[i]);
             }
         }
-        swap(nums[i + 1], nums[r]);
-        return i + 1;
+        swap(nums[j + 1], nums[r]);
+        return j + 1;
     }
     int findKthSmallest(vector<int>& nums, int k, int l, int r) {
         if (l == r) return l;
