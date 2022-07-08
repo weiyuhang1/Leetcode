@@ -3,15 +3,15 @@ public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
         const int n = temperatures.size();
         vector<int> answer(n, 0);
-        stack<pair<int, int>> st;
+        stack<int> st; // only stores the index of the element
         
         //  monotonic non increasing
         for (int i = 0; i < n; i++) {
-            while (!st.empty() && st.top().first < temperatures[i]) {
-                answer[st.top().second] = i - st.top().second;
+            while (!st.empty() && temperatures[st.top()] < temperatures[i]) {
+                answer[st.top()] = i - st.top();
                 st.pop();
             }
-            st.push({temperatures[i], i});
+            st.push(i);
         }
         return answer;
     }
