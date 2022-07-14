@@ -3,15 +3,12 @@ public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
         sort(boxTypes.begin(), boxTypes.end(), comp);
         int sum = 0;
-        int i = 0;
-        while (i < boxTypes.size()) {
+        for (int i = 0; i < boxTypes.size() && truckSize; i++) {
             while (boxTypes[i][0] && truckSize) {
                  sum += boxTypes[i][1];
                  truckSize--;
                  boxTypes[i][0]--;
             }
-              
-            i++;
            
         }
         return sum;
