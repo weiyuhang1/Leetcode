@@ -1,31 +1,16 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> vec;
-        unordered_map<int, int> mp;
+        unordered_map<int, int> dict;
         for (int i = 0; i < nums.size(); i++) {
-            if (mp.find(target - nums[i]) != mp.end()) {
-                return vector<int> {mp.find(target - nums[i])->second, i};
+            if (dict.find(target - nums[i]) == dict.end()) {
+                dict[nums[i]] = i;
             } else {
-                mp[nums[i]] = i;
+                return {i, dict[target - nums[i]]};
             }
         }
-        return vector<int>{};
-    /*        
-            
-                mp.insert({nums[i], i});
-
-            }
-        
-        for (int num : nums) {
-            if ((target - num == num && mp.count(num) > 1) ||
-                target - num != num && mp.count(target - num) > 0) {
-                vec.push_back(mp.find(num)->second);
-                vec.push_back(mp.find(target - num)->second);
-                return vec;
-            }
-        }
-       return vec; */
+        return {};
     }
+  
   
 };
