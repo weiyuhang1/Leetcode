@@ -1,28 +1,17 @@
 class Solution {
 public:
-    int len;
-
     vector<int> smallestTrimmedNumbers(vector<string>& nums, vector<vector<int>>& queries) {
         vector<int> result;
-        len = nums[0].length();
         vector<pair<string, int>> nums1;
-        nums1.clear();
-            
-            for (int i = 0; i < nums.size(); i++) {
-                nums1.push_back({nums[i], i});
-            }
+        for (int i = 0; i < nums.size(); i++) 
+            nums1.push_back({nums[i], i});
         for (auto query : queries) {
             int k = query[0];
             int trim = query[1];
-
-
             findKthSmallest(nums1, k - 1, 0, nums1.size() - 1, trim);
-            
             result.push_back(nums1[k - 1].second);
-       //     result.push_back(findKthSmallest(nums1, query[0], 0, nums1.size() - 1));
         }
-        return result;
-        
+        return result;    
     }
 
     int findKthSmallest(vector<pair<string, int>>& nums, int k, int l, int r, int trim) {
@@ -41,7 +30,9 @@ public:
         swap(nums[q], nums[r]);
         int i = p - 1;
         for (int j = p; j < r; j++) {
-            int cmp = nums[j].first.compare(len - trim, string :: npos, nums[r].first, len - trim, string :: npos);
+            int cmp = nums[j].first.compare(
+                nums[j].first.length() - trim, string :: npos, 
+                nums[r].first, nums[r].first.length() - trim, string :: npos);
             if ((cmp == 0 && nums[j].second < nums[r].second) || cmp < 0) {
                 i++;
                 swap(nums[j], nums[i]);
