@@ -3,7 +3,7 @@ public:
     int findKthLargest(vector<int>& nums, int k) {
         return nums[findKthSmallest(nums, nums.size() - k, 0, nums.size() - 1)];
     }
-
+    
     int findKthSmallest(vector<int>& nums, int k, int l, int r) {
         if (l == r) return l;
         int pivot = partition(nums, l, r);
@@ -15,6 +15,7 @@ public:
             return findKthSmallest(nums, k, pivot + 1, r);
         }
     }
+    
     int partition(vector<int>& nums, int p, int r) {
         int q = p + rand() % (r - p + 1);
         swap(nums[q], nums[r]);
@@ -22,12 +23,14 @@ public:
         for (int j = p; j < r; j++) {
             if (nums[j] < nums[r]) {
                 i++;
-                swap(nums[j], nums[i]);
+                swap(nums[i], nums[j]);
             }
         }
         i++;
         swap(nums[i], nums[r]);
         return i;
     }
+    
+    
     
 };
