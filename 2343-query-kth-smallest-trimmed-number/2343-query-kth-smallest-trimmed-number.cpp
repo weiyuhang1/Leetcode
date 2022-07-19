@@ -1,9 +1,10 @@
 class Solution {
 public:
+    int len;
 
     vector<int> smallestTrimmedNumbers(vector<string>& nums, vector<vector<int>>& queries) {
         vector<int> result;
-        int len = nums[0].length();
+        len = nums[0].length();
         vector<pair<string, int>> nums1;
         nums1.clear();
             
@@ -14,14 +15,9 @@ public:
             int k = query[0];
             int trim = query[1];
 
-            nth_element(nums1.begin(), nums1.begin() + k - 1, nums1.end(), [&](const auto& a, const auto& b) {
-                int cmp = a.first.compare(len - trim, string :: npos, b.first, len - trim, string :: npos);
-                if (cmp == 0) {
-                    return a.second < b.second;
-                } else {
-                    return cmp < 0;
-                }
-            });
+
+            findKthSmallest(nums1, k - 1, 0, nums1.size() - 1, trim);
+            
             result.push_back(nums1[k - 1].second);
        //     result.push_back(findKthSmallest(nums1, query[0], 0, nums1.size() - 1));
         }
@@ -29,32 +25,33 @@ public:
         
     }
 
-    int partition(vector<string>& nums, int p, int r) {
+    int findKthSmallest(vector<pair<string, int>>& nums, int k, int l, int r, int trim) {
+        if (l == r) return l;
+        int pivot = partition(nums, l, r, trim);
+        if (pivot == k) {
+            return pivot;
+        } else if (pivot > k) {
+            return findKthSmallest(nums, k, l, pivot - 1, trim);
+        } else {
+            return findKthSmallest(nums, k, pivot + 1, r, trim);
+        }
+    }
+    int partition(vector<pair<string, int>>& nums, int p, int r, int trim) {
         int q = p + rand() % (r - p + 1);
         swap(nums[q], nums[r]);
         int i = p - 1;
         for (int j = p; j < r; j++) {
-            if (nums[j] < nums[r]) {
+            int cmp = nums[j].first.compare(len - trim, string :: npos, nums[r].first, len - trim, string :: npos);
+            if ((cmp == 0 && nums[j].second < nums[r].second) || cmp < 0) {
                 i++;
-                swap(nums[i], nums[j]);
+                swap(nums[j], nums[i]);
             }
         }
-        swap(nums[i + 1], nums[r]);
-        return i + 1;
+        i++;
+        swap(nums[i], nums[r]);
+        return i;
     }
-    int findKthSmallest(vector<string>& nums, int k, int l, int r) {
-        if (l == r) return l;
-        if (l > r) return -1;
-        int pivot = partition(nums, l, r);
-        int len = pivot - l + 1;
-        if (pivot == k) {
-            return pivot;
-        } else if (pivot > k) {
-            return findKthSmallest(nums, k, l, pivot - 1);
-        } else {
-            return findKthSmallest(nums, k, pivot + 1, r);
-        }
-    }
+    
     
     
 };
