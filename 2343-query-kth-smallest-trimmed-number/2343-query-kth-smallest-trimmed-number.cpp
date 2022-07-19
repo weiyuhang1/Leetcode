@@ -42,7 +42,4 @@ public:
         swap(nums[i], nums[r]);
         return i;
     }
-    
-    
-    
 };
