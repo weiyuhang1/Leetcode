@@ -1,6 +1,8 @@
 class SparseVector {
-public:
+private:
     unordered_map<int, int> umap;
+public:
+    
     SparseVector(vector<int> &nums) {
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i] != 0)
