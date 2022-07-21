@@ -1,6 +1,6 @@
 class SparseVector {
 private:
-    list<pair<int, int>> l;
+    vector<pair<int, int>> l;
 public:
     
     SparseVector(vector<int> &nums) {
@@ -13,17 +13,15 @@ public:
     // Return the dotProduct of two sparse vectors
     int dotProduct(SparseVector& vec) {
         int sum = 0;
-        while (!l.empty() && !vec.l.empty()) {
-            int index1 = l.front().first;
-            int index2 = vec.l.front().first;
+        for (int i = 0, j = 0; i < l.size() && j < vec.l.size(); i++, j++) {
+            int index1 = l[i].first;
+            int index2 = vec.l[j].first;
             if (index1 == index2) {
-                sum += l.front().second * vec.l.front().second;
-                l.pop_front();
-                vec.l.pop_front();
+                sum += l[i].second * vec.l[j].second;
             } else if (index1 < index2) {
-                l.pop_front();
+                j--;
             } else {
-                vec.l.pop_front();
+                i--;
             }
         }
         return sum;
