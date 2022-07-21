@@ -8,7 +8,6 @@ public:
         int loindex = (int)(lo - nums.begin());
         int hiindex = (int)(hi - nums.begin());
         if (lo == nums.end() || *lo != target) return {-1, -1};
-        vector<int> result{loindex, hiindex - 1};
-        return result;
+        return {loindex, hiindex - 1};
     }
 };
